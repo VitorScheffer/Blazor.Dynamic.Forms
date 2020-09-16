@@ -1,0 +1,94 @@
+﻿@using Syncfusion.Blazor.Inputs
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.Calendars
+
+@if (Fields == null) return;
+
+<div class="row">
+    @foreach (var field in Fields)
+    {
+        <div class="col-4">
+            <div class="form-group">
+                <label>@field.GetFieldName()</label>
+
+                @if (field is BlazorApp1.Data.TextField textField)
+                {
+                    <SfTextBox Value="@(textField.ValueBind.GetValue(Model))" ValueChanged="@((v) => textField.ValueBind.SetValue(Model, v))" ValueExpression="@(textField.ValueBind.GetFieldExpression())" Multiline="@textField.Multiline"></SfTextBox>
+                }
+                else if (field is BlazorApp1.Data.IntegerField integerField)
+                {
+                    <SfNumericTextBox TValue="int" Format="@integerField.Format" Value="@(integerField.ValueBind.GetValue(Model))" ValueChanged="@((v) => integerField.ValueBind.SetValue(Model, v))" ValueExpression="@(integerField.ValueBind.GetFieldExpression())"></SfNumericTextBox>
+                }
+                else if (field is BlazorApp1.Data.NullableIntegerField nullableIntegerField)
+                {
+                    <SfNumericTextBox TValue="int?" Format="@nullableIntegerField.Format" Value="@(nullableIntegerField.ValueBind.GetValue(Model))" ValueChanged="@((v) => nullableIntegerField.ValueBind.SetValue(Model, v))" ValueExpression="@(nullableIntegerField.ValueBind.GetFieldExpression())"></SfNumericTextBox>
+                }
+                else if (field is BlazorApp1.Data.DoubleField doubleField)
+                {
+                    <SfNumericTextBox TValue="double" Format="@doubleField.Format" Value="@(doubleField.ValueBind.GetValue(Model))" ValueChanged="@((v) => doubleField.ValueBind.SetValue(Model, v))" ValueExpression="@(doubleField.ValueBind.GetFieldExpression())"></SfNumericTextBox>
+                }
+                else if (field is BlazorApp1.Data.NullableDoubleField nullableDoubleField)
+                {
+                    <SfNumericTextBox TValue="double?" Format="@nullableDoubleField.Format" Value="@(nullableDoubleField.ValueBind.GetValue(Model))" ValueChanged="@((v) => nullableDoubleField.ValueBind.SetValue(Model, v))" ValueExpression="@(nullableDoubleField.ValueBind.GetFieldExpression())"></SfNumericTextBox>
+                }
+                else if (field is BlazorApp1.Data.FloatField floatField)
+                {
+                    <SfNumericTextBox TValue="float" Format="@floatField.Format" Value="@(floatField.ValueBind.GetValue(Model))" ValueChanged="@((v) => floatField.ValueBind.SetValue(Model, v))" ValueExpression="@(floatField.ValueBind.GetFieldExpression())"></SfNumericTextBox>
+                }
+                else if (field is BlazorApp1.Data.NullableFloatField nullableFloatField)
+                {
+                    <SfNumericTextBox TValue="float?" Format="@nullableFloatField.Format" Value="@(nullableFloatField.ValueBind.GetValue(Model))" ValueChanged="@((v) => nullableFloatField.ValueBind.SetValue(Model, v))" ValueExpression="@(nullableFloatField.ValueBind.GetFieldExpression())"></SfNumericTextBox>
+                }
+                else if (field is BlazorApp1.Data.DecimalField decimalField)
+                {
+                    <SfNumericTextBox TValue="decimal" Format="@decimalField.Format" Value="@(decimalField.ValueBind.GetValue(Model))" ValueChanged="@((v) => decimalField.ValueBind.SetValue(Model, v))" ValueExpression="@(decimalField.ValueBind.GetFieldExpression())"></SfNumericTextBox>
+                }
+                else if (field is BlazorApp1.Data.NullableDecimalField nullableDecimalField)
+                {
+                    <SfNumericTextBox TValue="decimal?" Format="@nullableDecimalField.Format" Value="@(nullableDecimalField.ValueBind.GetValue(Model))" ValueChanged="@((v) => nullableDecimalField.ValueBind.SetValue(Model, v))" ValueExpression="@(nullableDecimalField.ValueBind.GetFieldExpression())"></SfNumericTextBox>
+                }
+                else if (field is BlazorApp1.Data.BooleanField booleanField)
+                {
+                    <SfCheckBox TChecked="bool" Checked="@(booleanField.ValueBind.GetValue(Model))" CheckedChanged="@((v) => booleanField.ValueBind.SetValue(Model, v))" CheckedExpression="@(booleanField.ValueBind.GetFieldExpression())"></SfCheckBox>
+                }
+                else if (field is BlazorApp1.Data.NullableBooleanField nullableBooleanField)
+                {
+                    <SfCheckBox TChecked="bool?" Checked="@(nullableBooleanField.ValueBind.GetValue(Model))" CheckedChanged="@((v) => nullableBooleanField.ValueBind.SetValue(Model, v))" CheckedExpression="@(nullableBooleanField.ValueBind.GetFieldExpression())"></SfCheckBox>
+                }
+                else if (field is BlazorApp1.Data.DateField dateField)
+                {
+                    <SfDatePicker TValue="DateTime" Format="@dateField.Format" Value="@(dateField.ValueBind.GetValue(Model))" ValueChanged="@((v) => dateField.ValueBind.SetValue(Model, v))" ValueExpression="@(dateField.ValueBind.GetFieldExpression())"></SfDatePicker>
+                }
+                else if (field is BlazorApp1.Data.NullableDateField nullableDateField)
+                {
+                    <SfDatePicker TValue="DateTime?" Format="@nullableDateField.Format" Value="@(nullableDateField.ValueBind.GetValue(Model))" ValueChanged="@((v) => nullableDateField.ValueBind.SetValue(Model, v))" ValueExpression="@(nullableDateField.ValueBind.GetFieldExpression())"></SfDatePicker>
+                }
+                else if (field is BlazorApp1.Data.DateTimeField dateTimeField)
+                {
+                    <SfDateTimePicker TValue="DateTime" Format="@dateTimeField.Format" Value="@(dateTimeField.ValueBind.GetValue(Model))" ValueChanged="@((v) => dateTimeField.ValueBind.SetValue(Model, v))" ValueExpression="@(dateTimeField.ValueBind.GetFieldExpression())"></SfDateTimePicker>
+                }
+                else if (field is BlazorApp1.Data.NullableDateTimeField nullableDateTimeField)
+                {
+                    <SfDateTimePicker TValue="DateTime?" Format="@nullableDateTimeField.Format" Value="@(nullableDateTimeField.ValueBind.GetValue(Model))" ValueChanged="@((v) => nullableDateTimeField.ValueBind.SetValue(Model, v))" ValueExpression="@(nullableDateTimeField.ValueBind.GetFieldExpression())"></SfDateTimePicker>
+                }
+            </div>
+        </div>
+    }
+</div>
+
+@code{
+
+    [Parameter]
+    public object Model { get; set; }
+
+    private List<BlazorApp1.Data.IFieldElement> Fields;
+
+    protected override void OnInitialized()
+    {
+        if (Model == null) return;
+
+        var builder = new BlazorApp1.Data.ViewBuilder();
+        Fields = builder.Generate(Model.GetType()).ToList();
+    }
+
+}

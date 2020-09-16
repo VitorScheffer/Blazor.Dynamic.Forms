@@ -1,0 +1,13 @@
+﻿@using BlazorApp1.Components.ViewBuilder
+@using BlazorApp1.ViewModel
+@page "/"
+
+<h1>Hello, world!</h1>
+
+<Render Model="@Model"></Render>
+
+@code{
+
+    public SampleViewModel Model = new SampleViewModel();
+
+}
